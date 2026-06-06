@@ -48,7 +48,6 @@ async def run_ai_steps(db, quote_id: str, message: str, idempotency_key: str, lo
     sources=[]
     final_text=None
     for _ in range(8):
-        print("========== USING AI MODE ==========", flush=True)
 
         resp = await client.chat.completions.create(
             model=settings.openai_model,
