@@ -37,7 +37,10 @@ def _safe_args(raw: str):
 
 async def run_ai_steps(db, quote_id: str, message: str, idempotency_key: str, logger):
     from openai import AsyncOpenAI
-    client = AsyncOpenAI(api_key=settings.openai_api_key)
+    client = AsyncOpenAI(
+    api_key=settings.openai_api_key,
+    base_url=settings.openai_base_url,
+)
     messages = [
         {"role":"system","content":SYSTEM_PROMPT},
         {"role":"user","content":f"quote_id={quote_id}\nKullanıcı mesajı: {message}"},
@@ -45,6 +48,8 @@ async def run_ai_steps(db, quote_id: str, message: str, idempotency_key: str, lo
     sources=[]
     final_text=None
     for _ in range(8):
+        print("========== USING AI MODE ==========", flush=True)
+
         resp = await client.chat.completions.create(
             model=settings.openai_model,
             messages=messages,
