@@ -4,11 +4,11 @@
 
 ### Mobile Application
 
-![Mobile Chat](screenshots/Screenshot 2026-06-07 000402.png)
+![Mobile Chat](screenshots/app.png)
 
 ### Web Admin Dashboard
 
-![Web Dashboard](screenshots/Screenshot 2026-06-07 000428.png)
+![Web Dashboard](screenshots/web.png)
 
 ## Overview
 
